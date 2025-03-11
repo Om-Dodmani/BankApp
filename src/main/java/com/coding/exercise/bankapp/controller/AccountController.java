@@ -33,7 +33,7 @@ public class AccountController {
 	@GetMapping(path = "/{accountNumber}")
 	@ApiOperation(value = "Get account details", notes = "Find account details by account number")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
-			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 600, message = "Bad Request"),
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 
 	public ResponseEntity<Object> getByAccountNumber(@PathVariable Long accountNumber) {
