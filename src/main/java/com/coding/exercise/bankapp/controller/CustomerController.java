@@ -1,6 +1,8 @@
 package com.coding.exercise.bankapp.controller;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,9 @@ import io.swagger.annotations.ApiResponses;
 @Api(tags = { "Customer REST endpoints" })
 public class CustomerController {
 
+
+	Logger logger = LoggerFactory.getLogger(LogController.class);
+	
 	@Autowired
 	private BankingServiceImpl bankingService;
 
@@ -36,8 +41,9 @@ public class CustomerController {
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 
 	public List<CustomerDetails> getAllCustomers() {
-
+		logger.info("Fetched Details of All customers successfully");
 		return bankingService.findAll();
+		
 	}
 
 	@PostMapping(path = "/add")
@@ -47,7 +53,8 @@ public class CustomerController {
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 
 	public ResponseEntity<Object> addCustomer(@RequestBody CustomerDetails customer) {
-
+		
+		logger.info("Customer Added Successfully");
 		return bankingService.addCustomer(customer);
 	}
 
@@ -60,6 +67,7 @@ public class CustomerController {
 
 	public CustomerDetails getCustomer(@PathVariable Long customerNumber) {
 
+		logger.info("Customer Details Fetched successfully");
 		return bankingService.findByCustomerNumber(customerNumber);
 	}
 
@@ -72,6 +80,7 @@ public class CustomerController {
 	public ResponseEntity<Object> updateCustomer(@RequestBody CustomerDetails customerDetails,
 			@PathVariable Long customerNumber) {
 
+			logger.info("Customer Updated Successfully");
 		return bankingService.updateCustomer(customerDetails, customerNumber);
 	}
 
@@ -82,7 +91,7 @@ public class CustomerController {
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 
 	public ResponseEntity<Object> deleteCustomer(@PathVariable Long customerNumber) {
-
+		logger.info("Customer Deleted Successfully");
 		return bankingService.deleteCustomer(customerNumber);
 	}
 
