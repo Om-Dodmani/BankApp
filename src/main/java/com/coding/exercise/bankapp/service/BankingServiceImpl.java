@@ -1,5 +1,6 @@
 package com.coding.exercise.bankapp.service;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +31,7 @@ import com.coding.exercise.bankapp.service.helper.BankingServiceHelper;
 @Service
 @Transactional
 public class BankingServiceImpl implements BankingService {
+	Logger logger = LoggerFactory.getLogger(LogController.class);
 
 	@Autowired
     private CustomerRepository customerRepository;
@@ -158,8 +160,10 @@ public class BankingServiceImpl implements BankingService {
 		if(managedCustomerEntityOpt.isPresent()) {
 			Customer managedCustomerEntity = managedCustomerEntityOpt.get();
 			customerRepository.delete(managedCustomerEntity);
+			logger.info("Customer Deleted Successfully");
 			return ResponseEntity.status(HttpStatus.OK).body("Success: Customer deleted.");
 		} else {
+			logger.info("Customer does not exist");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer does not exist.");
 		}
 		
