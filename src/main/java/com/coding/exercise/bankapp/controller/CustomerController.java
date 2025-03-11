@@ -55,6 +55,7 @@ public class CustomerController {
 	public ResponseEntity<Object> addCustomer(@RequestBody CustomerDetails customer) {
 		
 		logger.info("Customer Added Successfully");
+		logger.info("Customer Details"+customer.firstname+customer.customerNumber);
 		return bankingService.addCustomer(customer);
 	}
 
