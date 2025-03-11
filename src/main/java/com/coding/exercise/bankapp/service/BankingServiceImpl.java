@@ -179,7 +179,7 @@ public class BankingServiceImpl implements BankingService {
 		if(accountEntityOpt.isPresent()) {
 			return ResponseEntity.status(HttpStatus.FOUND).body(bankingServiceHelper.convertToAccountDomain(accountEntityOpt.get()));
 		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account Number " + accountNumber + " not found.");
+			return ResponseEntity.status(600).body("Account Number " + accountNumber + " not found.");
 		}
 		
 	}
