@@ -38,7 +38,7 @@ public class CustomerController {
 	@ApiOperation(value = "Find all customers", notes = "Gets details of all the customers")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
 			@ApiResponse(code = 400, message = "Bad Request"),
-			@ApiResponse(code = 500, message = "Internal Server Error") })
+			@ApiResponse(code = 600, message = "Internal Server Error") })
 
 	public List<CustomerDetails> getAllCustomers() {
 		logger.info("Fetched Details of All customers successfully");
