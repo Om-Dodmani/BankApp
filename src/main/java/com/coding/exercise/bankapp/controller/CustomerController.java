@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiResponses;
 public class CustomerController {
 
 
-	Logger logger = LoggerFactory.getLogger(LogController.class);
+	Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
 	private BankingServiceImpl bankingService;
