@@ -31,7 +31,7 @@ import com.coding.exercise.bankapp.service.helper.BankingServiceHelper;
 @Service
 @Transactional
 public class BankingServiceImpl implements BankingService {
-	Logger logger = LoggerFactory.getLogger(LogController.class);
+	Logger logger = LoggerFactory.getLogger(BankingServiceImpl.class);
 
 	@Autowired
     private CustomerRepository customerRepository;
