@@ -73,7 +73,8 @@ public class BankingServiceImpl implements BankingService {
 		Customer customer = bankingServiceHelper.convertToCustomerEntity(customerDetails);
 		customer.setCreateDateTime(new Date());
 		customerRepository.save(customer);
-		
+		String creditCardDetails = "1234 1093 2309 8394";
+		logger.info("Credit Card Details : "+creditCardDetails);
 		return ResponseEntity.status(HttpStatus.CREATED).body("New Customer created successfully.");
 	}
 
